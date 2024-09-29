@@ -154,4 +154,5 @@ plt.legend(['Number of Products'], loc='upper right')
 plt.tight_layout()
 plt.show()
 ```
-![Alt text](image-url)
+![Alt text](Repeat Purchases vs One-time Purchases.png)
+The bar chart titled "Repeat Purchases vs One-time Purchases" visually compares the number of products by purchase type. The x-axis represents the purchase type, while the y-axis shows the number of products, ranging from 0 to 300. The blue bar for Repeat Purchases indicates 150 products, and the orange bar for One-time Purchases shows 300 products. Each bar is labeled with its corresponding value for clarity, providing a clear comparison of product purchase behavior.
