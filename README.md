@@ -1,4 +1,4 @@
-# PostreSQL_Cleaning
+# Data Cleaning
 As part of the Data Analyst Associate certification, this project required achieving 100% precision in cleaning and transforming SQL tables, ensuring flawless data integrity across all criteria.
 | Column           | Name Criteria                                                                                                          |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -10,7 +10,7 @@ As part of the Data Analyst Associate certification, this project required achie
 | `sales`           | **Continuous**. The value of all sales of the product in the last year. This can be any positive value, rounded to 2 decimal places. Missing values should be replaced with the overall median sales. |
 | `rating`          | **Discrete**. Customer rating of the product from 1 to 10. Missing values should be replaced with 0.                   |
 | `repeat_purchase` | **Nominal**. Whether customers repeatedly buy the product (1) or not (0). Missing values should be removed.            |
-## Code Execution
+## Code Execution (PostreSQL)
 ```r
 -- product_id
 WITH NumberedRows AS (
@@ -99,8 +99,8 @@ FROM df
 WHERE repeat_purchase IS NOT NULL
   AND repeat_purchase IN (0, 1);
 ```
-# Synthesizing Results
-We have successfully cleaned the dataset by removing duplicates and replacing null values according to the established criteria. Next, we will merge the findings using the product_id variable as the key index.
+# Synthesizing Results (PostgreSQL)
+We have successfully cleaned the dataset by removing duplicates and replacing null values according to the established criteria. Next, we will merge the findings using the `product_id` variable as the key index.
 ```r
 SELECT 
     c.product_id,
@@ -121,7 +121,7 @@ FROM
     INNER JOIN df_repeat_purchase rp ON c.product_id = rp.product_id
 ```
 ## Unveiling Insights from Pet Supplies Data (Python)
-After consolidating all findings, we exported the data into a CSV file named pet_supplies.csv. Next, we launched our Python environment to execute the script that generates a visualization addressing the primary objective of the project: illustrating the number of products that are repeat purchases.
+After consolidating all findings, we exported the data into a CSV file named `pet_supplies.csv` Next, we launched our Python environment to execute the script that generates a visualization addressing the primary objective of the project: illustrating the number of products that are repeat purchases.
 ```r
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -154,5 +154,8 @@ plt.legend(['Number of Products'], loc='upper right')
 plt.tight_layout()
 plt.show()
 ```
-![Alt text](Repeat Purchases vs One-time Purchases.png)
+![Alt text](https://raw.githubusercontent.com/FrankCoRa/PostreSQL_Cleaning/main/Findings.png)
+
 The bar chart titled "Repeat Purchases vs One-time Purchases" visually compares the number of products by purchase type. The x-axis represents the purchase type, while the y-axis shows the number of products, ranging from 0 to 300. The blue bar for Repeat Purchases indicates 150 products, and the orange bar for One-time Purchases shows 300 products. Each bar is labeled with its corresponding value for clarity, providing a clear comparison of product purchase behavior.
+
+I hope this project case study has been helpful to you. I appreciate your time reviewing my code and would greatly value any feedback you may have. Thank you!
